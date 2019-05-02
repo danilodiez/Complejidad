@@ -16,6 +16,12 @@ def buscarSuc(idSuc):
 	nombreSuc = sucursales[i][1]
 	return nombreSuc
 
+def buscarReposicion(idArt):
+	for i in array:
+		if(i[1]==idArt):
+			if(i[2]>5):
+				print('La sucursal ',buscarSuc(i[0]),' puede reponer')
+
 def buscarArt(idArt):
 	file_name 	= 'articulos.xlsx' 
 	articulos 	= read_excel(file_name, sheet_name = my_sheet)
@@ -38,17 +44,18 @@ array = contSucArt.values
 i=0
 while i < (len(array)):
 	
-	if (array[i][2]==0 or array[i][2]>5):
+	if (array[i][2]==0):
 		
-		idSuc=array[i][0]		
-		print ("La sucursal ", buscarSuc(idSuc), "posee: ")
+		idSuc=array[i][0]	
+		idArt = array[i][1]	
+		print ("--------------La sucursal ", buscarSuc(idSuc), " no posee: ", buscarArt(idArt),'-------------------------')
+		
 
-		while ((i < (len(array))) and (array[i][0]==idSuc)):
-			idArt = array[i][1]
-			print('		', array[i][2], ' unidades de ', buscarArt(idArt))
-			
-			#INCREMENTAR i EN BUCLE SUPERIOR
-			i+=1
+		#BUSCAR REPONEDOR
+		buscarReposicion(idArt)
+		print("**********************************************************************")
+
+		
 
 	#INCREMENTAR i EN BUCLE SUPERIOR
 	i+=1
