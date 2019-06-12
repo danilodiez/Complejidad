@@ -2,6 +2,7 @@ import xlrd
 from pandas import *
 from numpy import *
 import generarExcel
+import time
 
 my_sheet 	= 'Sheet1'
 
@@ -17,7 +18,7 @@ file_name 	= 'contSucArt.xlsx'
 contSucArt 	= read_excel(file_name, sheet_name = my_sheet, header=0)
 
 array = contSucArt.values 
-
+inicio=time.time()
 i=0
 flag=False
 while i < (len(array)):
@@ -38,3 +39,5 @@ while i < (len(array)):
 
 if flag==False:
 	print("No hay problemas de stock en las sucursales")
+fin=time.time()
+print('Tiempo total: ', (fin-inicio))
