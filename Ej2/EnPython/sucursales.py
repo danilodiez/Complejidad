@@ -40,4 +40,5 @@ while i < (len(array)):
 if flag==False:
 	print("No hay problemas de stock en las sucursales")
 fin=time.time()
+print("--------------------------------------------------------------------------------")
 print('Tiempo total: ', (fin-inicio),' segundos')
