@@ -47,5 +47,5 @@ def amigos(maxim):
     print(end-start)
     return lista
 
-
-print(amigos(1000000))
+m=input('Ingrese un valor maximo: ')
+print(amigos(m))
